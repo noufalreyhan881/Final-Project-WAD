@@ -13,36 +13,37 @@ Berikut adalah detail hierarki halaman yang menunjukkan alur pengguna dari setia
 
   #### A. Halaman Umum (Akses Publik)
   Halaman yang bisa dilihat oleh semua pengunjung, baik yang sudah login maupun belum.
-  - Beranda (/)
-  - Login (/login)
-  - Daftar (/register)
-  - Katalog Buku (/books)
-  - Detail Buku (/books/:id)
+  - Beranda
+  - Login
+  - Daftar
+  - Katalog Buku
+  - Detail Buku
 
   #### B. Halaman Anggota (Setelah Login)
   Halaman yang hanya dapat diakses oleh anggota yang sudah login.
-  - Dashboard Anggota (/dashboard)
-  - Riwayat Peminjaman (/my-borrowings)
-  - Katalog Buku (/books)
-  - Detail Buku (/books/:id)
-  - Profil Anggota (/profile)
-  - Edit Profil (/profile/edit)
-  - Ganti Password (/profile/password)
+  - Dashboard Anggota
+  - Riwayat Peminjaman
+  - Katalog Buku
+  - Detail Buku
+  - Profil Anggota
+  - Edit Profil
+  - Ganti Password
   
   #### C. Halaman Admin (Setelah Login)
   Halaman yang hanya dapat diakses oleh admin.
-  - Dashboard Admin (/admin/dashboard)
+  - Dashboard Admin
   - Statistik & Ringkasan
-  - Manajemen Buku (/admin/books)
-  - Daftar Buku (/admin/books)
-  - Halaman Tambah Buku (/admin/books/add)
-  - Halaman Edit Buku (/admin/books/:id/edit)
-  - Manajemen Anggota (/admin/members)
-  - Daftar Anggota (/admin/members)
-  - Halaman Tambah Anggota (/admin/members/add)
-  - Halaman Edit Anggota (/admin/members/:id/edit)
-  - Manajemen Transaksi (/admin/borrowings
-  - Daftar Peminjaman (/admin/borrowings)
-  - Halaman Catat Peminjaman (/admin/borrowings/add)
+  - Manajemen Buku
+  - Daftar Buku
+  - Halaman Tambah Buku
+  - Halaman Edit Buku
+  - Manajemen Anggota
+  - Daftar Anggota
+  - Halaman Tambah Anggota
+  - Halaman Edit Anggota
+  - Manajemen Transaksi
+  - Daftar Peminjaman
+  - Halaman Catat Peminjaman
+  - Halaman Catat Pengembalian
 
-Halaman Catat Pengembalian (/admin/borrowings/return/:id)
+
