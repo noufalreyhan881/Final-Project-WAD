@@ -29,7 +29,7 @@ export function Header() {
               <BookOpen className="h-6 w-6 text-primary-foreground" />
             </div>
             <span className="text-xl font-serif font-semibold text-gradient">
-              Perpustakaan Digital
+              DigiLibrary
             </span>
           </Link>
 

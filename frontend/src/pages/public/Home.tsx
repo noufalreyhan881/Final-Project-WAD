@@ -44,7 +44,7 @@ export default function Home() {
           <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6">
             Selamat Datang di
             <br />
-            <span className="text-secondary-light">Perpustakaan Digital</span>
+            <span className="text-secondary-light">DigiLibrary</span>
           </h1>
           <ApiTest />
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
@@ -60,6 +60,7 @@ export default function Home() {
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
+<<<<<<< HEAD
                 <Button
                   size="lg"
                   variant="outline"
@@ -67,6 +68,12 @@ export default function Home() {
                   asChild
                 >
                   <Link to="/books">Jelajahi Katalog</Link>
+=======
+                <Button size="lg" className="bg-sky-400 text-white hover:bg-sky-500 hover:text-white border border-sky-400">
+                  <Link to="/books">
+                    Jelajahi Katalog
+                  </Link>
+>>>>>>> 9e2666832e2ed3f9d508b8e9c3042491c9321f51
                 </Button>
               </>
             ) : (
