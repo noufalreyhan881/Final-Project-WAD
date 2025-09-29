@@ -34,7 +34,7 @@ export default function Home() {
           <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6">
             Selamat Datang di
             <br />
-            <span className="text-secondary-light">Perpustakaan Digital</span>
+            <span className="text-secondary-light">DigiLibrary</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
             Jelajahi dunia pengetahuan tanpa batas. Temukan, pinjam, dan nikmati ribuan koleksi buku terbaik dalam satu platform.
@@ -48,7 +48,7 @@ export default function Home() {
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary" asChild>
+                <Button size="lg" className="bg-sky-400 text-white hover:bg-sky-500 hover:text-white border border-sky-400">
                   <Link to="/books">
                     Jelajahi Katalog
                   </Link>

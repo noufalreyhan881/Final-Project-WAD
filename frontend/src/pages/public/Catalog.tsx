@@ -22,8 +22,8 @@ const mockBooks = [
   },
   {
     id: '2',
-    title: 'Filosofi Hidup Sederhana',
-    author: 'Jane Smith',
+    title: 'Filosofi Hidup Mewah tapi Sederhana',
+    author: 'Ucok Kangkung',
     publisher: 'Wisdom Books',
     publishYear: 2022,
     category: 'Filosofi',
@@ -34,20 +34,20 @@ const mockBooks = [
   },
   {
     id: '3',
-    title: 'Sejarah Nusantara',
-    author: 'Ahmad Rahman',
+    title: 'Sejarah Dinasti Indonesia',
+    author: 'Girban Wibobo',
     publisher: 'Historia Press',
     publishYear: 2021,
     category: 'Sejarah',
     availableCopies: 7,
     totalCopies: 12,
     cover: null,
-    description: 'Perjalanan sejarah lengkap kepulauan Nusantara dari masa ke masa.'
+    description: 'Sejarah lengkap Kepemimpinan Dinasti di negara Indonesia dari zaman ke zaman.'
   },
   {
     id: '4',
     title: 'Machine Learning Praktis',
-    author: 'Dr. Sarah Chen',
+    author: 'Dr. Dadang Van Ahmet',
     publisher: 'AI Publications',
     publishYear: 2023,
     category: 'Teknologi',
