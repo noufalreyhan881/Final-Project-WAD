@@ -2,45 +2,46 @@
 
 ## 1. Struktur Navigasi Utama
 Navigasi ini akan menjadi menu utama yang dapat diakses dari halaman mana pun.
-    - Beranda
-    - Katalog Buku
-    - Login
-    - Daftar
+- Beranda
+- Katalog Buku
+- Login
+- Daftar
 
 ## 2. Peta Halaman Berdasarkan Peran
 Berikut adalah detail hierarki halaman yang menunjukkan alur pengguna dari setiap peran.
     
-A. Halaman Umum (Akses Publik)
+### A. Halaman Umum (Akses Publik)
 Halaman yang bisa dilihat oleh semua pengunjung, baik yang sudah login maupun belum.
-    - Beranda 
-    - Login 
-    - Daftar 
-    - Katalog Buku
+- Beranda 
+- Login 
+- Daftar 
+- Katalog Buku
     - Detail Buku
 
-B. Halaman Anggota (Setelah Login)
+### B. Halaman Anggota (Setelah Login)
 Halaman yang hanya dapat diakses oleh anggota yang sudah login.
-    - Dashboard Anggota
+- Dashboard Anggota
     - Riwayat Peminjaman
-    - Katalog Buku
+- Katalog Buku
     - Detail Buku
-    - Profil Anggota
+- Profil Anggota
     - Edit Profil
     - Ganti Password
     
-C. Halaman Admin (Setelah Login)
+### C. Halaman Admin (Setelah Login)
 Halaman yang hanya dapat diakses oleh admin.
-    -  Dashboard Admin 
+-  Dashboard Admin 
     - Statistik & Ringkasan
-    - Manajemen Buku
+- Manajemen Buku
     - Daftar Buku
-    - Halaman Tambah Buku
-    - Halaman Edit Buku
-    - Manajemen Anggota
+        - Halaman Tambah Buku
+        - Halaman Edit Buku
+- Manajemen Anggota
     - Daftar Anggota
-    - Halaman Tambah Anggota
-    - Halaman Edit Anggota
+        - Halaman Tambah Anggota
+        - Halaman Edit Anggota
+- Halaman Edit Anggota
     - Manajemen Transaksi
-    - Daftar Peminjaman
-    - Halaman Catat Peminjaman
-    - Halaman Catat Pengembalian 
+        - Daftar Peminjaman
+        - Halaman Catat Peminjaman
+        - Halaman Catat Pengembalian 
