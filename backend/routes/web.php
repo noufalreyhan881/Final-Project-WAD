@@ -6,7 +6,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/book', function () {
+Route::get('/books', function () {
     $books = [
         [
             'id' => '1',
