@@ -9,6 +9,7 @@ Navigasi ini akan menjadi menu utama yang dapat diakses dari halaman mana pun.
 
 ## 2. Peta Halaman Berdasarkan Peran
 Berikut adalah detail hierarki halaman yang menunjukkan alur pengguna dari setiap peran.
+    
     ### A. Halaman Umum (Akses Publik)
     Halaman yang bisa dilihat oleh semua pengunjung, baik yang sudah login maupun belum.
         - Beranda 
@@ -16,6 +17,7 @@ Berikut adalah detail hierarki halaman yang menunjukkan alur pengguna dari setia
         - Daftar 
         - Katalog Buku
             - Detail Buku
+    
     ### B. Halaman Anggota (Setelah Login)
     Halaman yang hanya dapat diakses oleh anggota yang sudah login.
         - Dashboard Anggota
@@ -25,6 +27,7 @@ Berikut adalah detail hierarki halaman yang menunjukkan alur pengguna dari setia
         - Profil Anggota
             - Edit Profil
             - Ganti Password
+    
     ### C. Halaman Admin (Setelah Login)
     Halaman yang hanya dapat diakses oleh admin.
         -  Dashboard Admin 
