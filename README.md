@@ -16,31 +16,31 @@ Halaman yang bisa dilihat oleh semua pengunjung, baik yang sudah login maupun be
     - Login 
     - Daftar 
     - Katalog Buku
-        - Detail Buku
+    - Detail Buku
 
 B. Halaman Anggota (Setelah Login)
 Halaman yang hanya dapat diakses oleh anggota yang sudah login.
     - Dashboard Anggota
-        - Riwayat Peminjaman
+    - Riwayat Peminjaman
     - Katalog Buku
-        - Detail Buku
+    - Detail Buku
     - Profil Anggota
-        - Edit Profil
-        - Ganti Password
+    - Edit Profil
+    - Ganti Password
     
 C. Halaman Admin (Setelah Login)
 Halaman yang hanya dapat diakses oleh admin.
     -  Dashboard Admin 
-        - Statistik & Ringkasan
+    - Statistik & Ringkasan
     - Manajemen Buku
-        - Daftar Buku
-            - Halaman Tambah Buku
-            - Halaman Edit Buku
+    - Daftar Buku
+    - Halaman Tambah Buku
+    - Halaman Edit Buku
     - Manajemen Anggota
-        - Daftar Anggota
-            - Halaman Tambah Anggota
-            - Halaman Edit Anggota
+    - Daftar Anggota
+    - Halaman Tambah Anggota
+    - Halaman Edit Anggota
     - Manajemen Transaksi
-        - Daftar Peminjaman
-            - Halaman Catat Peminjaman
-            - Halaman Catat Pengembalian 
+    - Daftar Peminjaman
+    - Halaman Catat Peminjaman
+    - Halaman Catat Pengembalian 
