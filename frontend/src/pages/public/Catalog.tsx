@@ -1,74 +1,34 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Search, BookOpen, Calendar, User } from 'lucide-react';
-
-// Mock data untuk demonstrasi
-const mockBooks = [
-  {
-    id: '1',
-    title: 'Belajar React dan TypeScript',
-    author: 'John Doe',
-    publisher: 'Tech Publisher',
-    publishYear: 2023,
-    category: 'Teknologi',
-    availableCopies: 5,
-    totalCopies: 10,
-    cover: null,
-    description: 'Panduan lengkap mempelajari React dan TypeScript untuk pengembangan web modern.'
-  },
-  {
-    id: '2',
-    title: 'Filosofi Hidup Mewah tapi Sederhana',
-    author: 'Ucok Kangkung',
-    publisher: 'Wisdom Books',
-    publishYear: 2022,
-    category: 'Filosofi',
-    availableCopies: 3,
-    totalCopies: 8,
-    cover: null,
-    description: 'Eksplorasi mendalam tentang filosofi hidup sederhana dan kebahagian sejati.'
-  },
-  {
-    id: '3',
-    title: 'Sejarah Dinasti Indonesia',
-    author: 'Girban Wibobo',
-    publisher: 'Historia Press',
-    publishYear: 2021,
-    category: 'Sejarah',
-    availableCopies: 7,
-    totalCopies: 12,
-    cover: null,
-    description: 'Sejarah lengkap Kepemimpinan Dinasti di negara Indonesia dari zaman ke zaman.'
-  },
-  {
-    id: '4',
-    title: 'Machine Learning Praktis',
-    author: 'Dr. Dadang Van Ahmet',
-    publisher: 'AI Publications',
-    publishYear: 2023,
-    category: 'Teknologi',
-    availableCopies: 2,
-    totalCopies: 6,
-    cover: null,
-    description: 'Implementasi praktis machine learning dalam berbagai bidang industri.'
-  },
-];
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Search, BookOpen, Calendar, User } from "lucide-react";
+import { useGetBooks } from "@/lib/api/books";
 
 export default function BookCatalog() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const { books, isLoading } = useGetBooks();
 
-  const categories = ['Semua', ...new Set(mockBooks.map(book => book.category))];
+  const categories = ["Semua", ...new Set(books.map((book) => book.category))];
 
-  const filteredBooks = mockBooks.filter(book => {
-    const matchesSearch = book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         book.author.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === '' || selectedCategory === 'Semua' || book.category === selectedCategory;
-    
+  const filteredBooks = books.filter((book) => {
+    const matchesSearch =
+      book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      book.author.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory =
+      selectedCategory === "" ||
+      selectedCategory === "Semua" ||
+      book.category === selectedCategory;
+
     return matchesSearch && matchesCategory;
   });
 
@@ -98,9 +58,16 @@ export default function BookCatalog() {
           {categories.map((category) => (
             <Button
               key={category}
-              variant={selectedCategory === category || (selectedCategory === '' && category === 'Semua') ? 'default' : 'outline'}
+              variant={
+                selectedCategory === category ||
+                (selectedCategory === "" && category === "Semua")
+                  ? "default"
+                  : "outline"
+              }
               size="sm"
-              onClick={() => setSelectedCategory(category === 'Semua' ? '' : category)}
+              onClick={() =>
+                setSelectedCategory(category === "Semua" ? "" : category)
+              }
             >
               {category}
             </Button>
@@ -111,14 +78,17 @@ export default function BookCatalog() {
       {/* Results */}
       <div className="mb-6">
         <p className="text-muted-foreground">
-          Menampilkan {filteredBooks.length} dari {mockBooks.length} buku
+          Menampilkan {filteredBooks.length} dari {books.length} buku
         </p>
       </div>
 
       {/* Book Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {filteredBooks.map((book) => (
-          <Card key={book.id} className="shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1">
+          <Card
+            key={book.id}
+            className="shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1"
+          >
             <CardHeader className="pb-3">
               <div className="w-full h-48 bg-muted rounded-lg flex items-center justify-center mb-3">
                 <BookOpen className="h-12 w-12 text-muted-foreground" />
@@ -126,35 +96,39 @@ export default function BookCatalog() {
               <CardTitle className="text-lg font-serif line-clamp-2">
                 {book.title}
               </CardTitle>
-              <CardDescription className="space-y-1">
-                <div className="flex items-center text-sm">
-                  <User className="h-3 w-3 mr-1" />
-                  {book.author}
-                </div>
-                <div className="flex items-center text-sm">
-                  <Calendar className="h-3 w-3 mr-1" />
-                  {book.publishYear}
+              <CardDescription>
+                <div className="space-y-1">
+                  <div className="flex items-center text-sm">
+                    <User className="h-3 w-3 mr-1" />
+                    {book.author}
+                  </div>
+                  <div className="flex items-center text-sm">
+                    <Calendar className="h-3 w-3 mr-1" />
+                    {book.publishYear}
+                  </div>
                 </div>
               </CardDescription>
             </CardHeader>
             <CardContent className="pt-0">
               <div className="space-y-3">
                 <Badge variant="secondary">{book.category}</Badge>
-                <p className="text-sm text-muted-foreground line-clamp-2">
+                <div className="text-sm text-muted-foreground line-clamp-2">
                   {book.description}
-                </p>
+                </div>
                 <div className="flex justify-between items-center text-sm">
                   <span className="text-muted-foreground">
                     Tersedia: {book.availableCopies}/{book.totalCopies}
                   </span>
-                  <Badge variant={book.availableCopies > 0 ? 'default' : 'destructive'}>
-                    {book.availableCopies > 0 ? 'Tersedia' : 'Habis'}
+                  <Badge
+                    variant={
+                      book.availableCopies > 0 ? "default" : "destructive"
+                    }
+                  >
+                    {book.availableCopies > 0 ? "Tersedia" : "Habis"}
                   </Badge>
                 </div>
                 <Button asChild className="w-full" size="sm">
-                  <Link to={`/books/${book.id}`}>
-                    Lihat Detail
-                  </Link>
+                  <Link to={`/books/${book.id}`}>Lihat Detail</Link>
                 </Button>
               </div>
             </CardContent>
@@ -165,7 +139,9 @@ export default function BookCatalog() {
       {filteredBooks.length === 0 && (
         <div className="text-center py-12">
           <BookOpen className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
-          <h3 className="text-xl font-serif font-semibold mb-2">Buku tidak ditemukan</h3>
+          <h3 className="text-xl font-serif font-semibold mb-2">
+            Buku tidak ditemukan
+          </h3>
           <p className="text-muted-foreground">
             Coba ubah kata kunci pencarian atau pilih kategori yang berbeda.
           </p>
