@@ -11,7 +11,7 @@ class Book extends Model
         'author',
         'publisher',
         'publishYear',
-        'category',
+        'category_id',
         'availableCopies',
         'totalCopies',
         'cover',
@@ -29,5 +29,14 @@ class Book extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+   
+    public function coverURLImage(): string
+    {
+       try {
+           return asset('storage/covers/' . $this->cover);
+       } catch (\Exception $e) {
+           return asset('images/default-cover.png');
+       }
     }
 }

@@ -1,5 +1,8 @@
+// ApiTest.tsx
+
 import { useEffect, useState } from "react";
-import { API_BASE_URL } from "@/config/api";
+// Import the default 'api' instance instead
+import api from "@/config/api";
 
 export function ApiTest() {
   const [message, setMessage] = useState<string>("");
@@ -8,18 +11,13 @@ export function ApiTest() {
   useEffect(() => {
     const testConnection = async () => {
       try {
-        console.log("Attempting to connect to:", `${API_BASE_URL}/test`);
-        const response = await fetch(`${API_BASE_URL}/test`);
-        console.log("Response status:", response.status);
-        console.log("Response headers:", response.headers);
+        // Use the 'api' instance. You only need the endpoint, not the full URL.
+        const response = await api.get("/test");
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        console.log("Response data:", data);
-        setMessage(data.message);
+        // With Axios, the data is directly on the `data` property
+        setMessage(response.data.message);
       } catch (err) {
+        // Axios provides better error objects
         setError(`Failed to connect to the API: ${err.message}`);
         console.error("API connection error:", err);
       }

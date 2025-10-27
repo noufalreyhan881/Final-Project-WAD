@@ -1,4 +1,5 @@
 import { User } from '@/types/auth';
+import { api } from
 
 export interface LoginCredentials {
   email: string;
