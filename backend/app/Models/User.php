@@ -6,8 +6,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use App\Models\Role;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
@@ -21,7 +24,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role',
     ];
 
     /**
@@ -39,17 +41,37 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-    protected function casts(): array
+     protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
+
+    //JWTsubject
+    public function getJWTIdentifier()
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-            'role' => 'string',
-        ];
+        return $this->getKey();
     }
 
-    public function isAdmin()
+    public function getJWTCustomClaims(): array
     {
-        return $this->role === 'admin';
+        return [];
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->hasRole('admin');
+    }
+
+    public function roles(): BelongsToMany
+    {
+        return $this->belongsToMany(Role::class, 'role_user');
+    }
+
+    public function hasRole(string $roleName): bool
+    {
+        if ($this->relationLoaded('roles')) {
+            return $this->roles->contains('name', $roleName);
+        }
+        return $this->roles()->where('name', $roleName)->exists();
     }
 }

@@ -1,12 +1,25 @@
+import axios from "axios";
 // API base URL
-export const API_BASE_URL = "http://localhost:8000/api";
 
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
+
+export const BASE_URL = apiUrl;
 // Default headers for API requests
+if (!apiUrl) {
+  throw new Error(
+    "VITE_API_BASE_URL is not set. Please define it in your environment variables."
+  );
+}
+
 export const DEFAULT_HEADERS = {
   "Content-Type": "application/json",
   Accept: "application/json",
 };
 
+const api = axios.create({
+  baseURL: apiUrl,
+  headers: { "Content-Type": "application/json", Accept: "application/json" },
+});
 // API endpoints
 export const API_ENDPOINTS = {
   // Auth
@@ -26,3 +39,5 @@ export const API_ENDPOINTS = {
   BORROW_BOOK: "/admin/transactions/borrow",
   RETURN_BOOK: "/admin/transactions/return",
 };
+
+export default api;
